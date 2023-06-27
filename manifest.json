@@ -1,0 +1,27 @@
+{
+   "action": {
+      "default_icon": "icon/icon128.png",
+      "default_popup": "html/popup.html"
+   },
+   "background": {
+      "service_worker": "js/background.js"
+   },
+   "content_scripts": [ {
+      "css": [ "css/zoomImg.css" ],
+      "js": [ "js/jquery-2.1.1.min.js", "js/showbig.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   } ],
+   "description": "更好的预览图片，本扩展可放大，缩小，旋转，轮播网页中图片",
+   "icons": {
+      "128": "icon/icon128.png",
+      "16": "icon/icon16.png",
+      "48": "icon/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAubgwGkMXzSAWnIzlJe729+i+i2s+QsWBTAW1msBboEC+/pweeiuzqwhpxbQ7iDX1LexERF67G/yOgylDjoBmHaIoqpj05KoSAspn+2AG3ayPbfTcf78uituEbfATHczAM5eLADxpIP1ky59UTMYWBnzOOT/NVBe0Ml1AMqIfkBbqzuwGWV/MVOsfNOGYYtPUa7nWT/klX6sOYy0BBkW2DH8I7rbTAgQhXDrgAEzgWT1nQunXnbKO4oXuWa+eynnrfvl0l3uKdUEkEXVJbGh9gi9+ej/IBsZ5WIRMPnFf/LXtMe+j8Y5r8aQtn9smCIKiqSUNWZuoam7TNS4bTb8kpwIDAQAB",
+   "manifest_version": 3,
+   "name": "图片预览 _ G",
+   "permissions": [ "contextMenus", "storage", "tabs" ],
+   "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx",
+   "version": "1.2"
+}

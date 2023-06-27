@@ -1,0 +1,101 @@
+﻿<!doctype html>
+<html>
+<head>
+  <script type="text/javascript" src="../js/jquery-2.1.1.min.js" charset="gb2312"></script>
+  <script type="text/javascript" src="../js/popup.js"></script>
+  <style>
+      body {
+          width: 210px;
+          font-size: 14px;
+          font-weight: 700;
+          color: #333;
+      }
+
+      h1 {
+          text-align: center;
+          color: #525252;
+      }
+
+      table {
+          font-size: 14px;
+          width: 100%;
+      }
+
+      #lxSimilarTable tr:hover {
+          background-color: #efefef;
+          cursor: pointer;
+      }
+
+      #lxSimilarTable td {
+          magin: 0px;
+          padding: 0px;
+      }
+
+      #lxSortTable td {
+          border-bottom: 2px solid rgb(237, 20, 91);
+      }
+
+      .switch-btn {
+          cursor: pointer;
+          width: 45px;
+          height: 28px;
+          position: relative;
+          border: 1px solid #dfdfdf;
+          background-color: #fdfdfd;
+          box-shadow: #dfdfdf 0 0 0 0 inset;
+          border-radius: 15px;
+          background-clip: content-box;
+          display: inline-block;
+          -webkit-appearance: none;
+          user-select: none;
+          outline: none;
+      }
+
+      .switch-btn:before {
+          content: '';
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          border-radius: 20px;
+          background-color: #fff;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+      }
+
+      .switch-btn:checked:before {
+          left: 18px;
+      }
+
+      .switch-btn.switch-btn-animbg {
+          transition: background-color ease .4s;
+      }
+
+      .switch-btn.switch-btn-animbg:before {
+          transition: left .3s;
+      }
+
+      .switch-btn.switch-btn-animbg:checked {
+          background-color: #666666;
+          transition: border-color .4s, background-color ease .4s;
+      }
+
+      .switch-btn.switch-btn-animbg:checked:before {
+          transition: left .3s;
+      }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td colspan="2" align="right"><label for="isShowBtn">图片左上角的预览按钮</label></td>
+      <td><input type="checkbox" class="switch-btn switch-btn-animbg" value="" name="choose" id="isShowBtn"></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="right"><label for="isShowBtnOnTheMenu">添加到浏览器右键菜单</label></td>
+      <td><input type="checkbox" checked class="switch-btn switch-btn-animbg" value="" name="choose" id="isShowBtnOnTheMenu">
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
