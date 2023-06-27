@@ -10,13 +10,13 @@ function showBigOnClick(info, tab) {
     });
 }
 chrome.contextMenus.create({
-    "id": "picture_preview",
-    "title": "查看图片",
+    "id": "picture_preview_perfect",
+    "title": "查看图片-优化版",
     "contexts": ["image"]
 });
 
 chrome.contextMenus.onClicked.addListener(function(info,tab) {
-    if(info.menuItemId === "picture_preview") {
+    if(info.menuItemId === "picture_preview_perfect") {
         showBigOnClick(info, tab)
     }
 });

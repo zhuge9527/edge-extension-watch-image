@@ -14,8 +14,8 @@ $(function () {
         });
         if ( $(this)[0].checked) {
             chrome.contextMenus.create({
-                "id": "picture_preview",
-                "title": "查看图片",
+                "id": "picture_preview_perfect",
+                "title": "查看图片-优化版",
                 "contexts": ["image"]
             });
         }else {

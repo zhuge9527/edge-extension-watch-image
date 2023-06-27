@@ -32,19 +32,39 @@ function showBigImgHelper() {
         let currentImgIndex = 0;
         let $lxZoomMask = $("#lxZoomMask");
 
+       
         function initializeImg() {
             let cW = document.documentElement.clientWidth,
             cH = document.documentElement.clientHeight;
+            // 调整图片
+            const setSize = function() {
+                orginImgWidth = thisImg[0].naturalWidth;
+                orginImgHeight = thisImg[0].naturalHeight;
+                // 修改当图片过高时，调整
+                if (orginImgHeight > cH - 60) {
+                    // console.log('update before: ', orginImgWidth, orginImgHeight, cH)
+                    let newOrginImgHeight = cH - 60
+                    orginImgWidth = Math.floor(orginImgWidth * (newOrginImgHeight / orginImgHeight))
+                    orginImgHeight = newOrginImgHeight
+                    // console.log('update after: ', orginImgWidth, orginImgHeight)
+                }
+                // 修改当图片过宽时，调整
+                if (orginImgWidth > cW - 100) {
+                    let newOrginImgWidth = cW - 100
+                    orginImgHeight = Math.floor(orginImgHeight * (newOrginImgWidth / orginImgWidth))
+                    orginImgWidth = newOrginImgWidth
+                }
+            }
+            setSize()
             let left = (cW - orginImgWidth) / 2,
             top = (cH - orginImgHeight) / 2;
-            // let width = orginImgWidth > document.documentElement.clientWidth * 0.8 ? document.documentElement.clientWidth * 0.8 : orginImgWidth
-            // let height = orginImgHeight > document.documentElement.clientHeight * 0.8 ? document.documentElement.clientHeight * 0.8 : clientHeight
+            if (orginImgHeight === cH - 60) top = 10
             thisImg.width(orginImgWidth + "px").height(orginImgHeight + "px");
             thisImg.css("left", left + "px").css("top", top + "px");
             thisImg.css("transform", "");
             $("#lxImgInfo").html(orginImgWidth + "x" + orginImgHeight + "&nbsp;&nbsp;&nbsp;&nbsp; " + (currentImgIndex + 1) + "/" + $("body img").length);
             $lxZoomMask.find(".lxPecentTip").remove();
-            $('<div class="lxPecentTip">100%</div>').appendTo($lxZoomMask).fadeOut(1000);
+            // $('<div class="lxPecentTip">100%</div>').appendTo($lxZoomMask).fadeOut(1000);
         }
 
         $lxZoomMask.css({display: "block", transform: "scale(0)"})
@@ -289,6 +309,8 @@ function showBigImgHelper() {
                 let originImgUrl = getOrginUrl(request.url);
                 thisImg.attr("src", originImgUrl);
                 showContainer();
+                let currentUrlImgArr = $(`body img[src='${originImgUrl}']`)
+                currentImgIndex = $("body img").index(currentUrlImgArr[0]);
                 setItemUrl($("body img").eq(currentImgIndex));
             }
         });
